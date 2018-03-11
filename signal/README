@@ -1,0 +1,18 @@
+信号的简单实践
+
+信号分类 kill -l 查看系统信号 
+实时信号(可靠信号后32个信号)   支持排队
+非实时信号(不可靠信号)         不支持排毒额
+
+SIG_IGN 忽略信号  SIG_DFL 默认行为
+
+man 7 signal 查看信号默认动作,信号的含义
+
+信号的发送  kill raise pause alarm
+
+
+信号的传递过程(阻塞未决) 
+sigset_t  sigemptyset  sigaddset sigprocmask sigpending 
+
+
+信号的高级用法 sigaction sigqueue
