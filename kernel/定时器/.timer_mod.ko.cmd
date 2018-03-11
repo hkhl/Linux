@@ -1,0 +1,1 @@
+cmd_/home/wang/linux/kernel/定时器/timer_mod.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/wang/linux/kernel/定时器/timer_mod.ko /home/wang/linux/kernel/定时器/timer_mod.o /home/wang/linux/kernel/定时器/timer_mod.mod.o ;  true

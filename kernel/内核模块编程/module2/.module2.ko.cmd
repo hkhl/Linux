@@ -1,0 +1,1 @@
+cmd_/home/wang/linux/kernel/内核模块编程/module2/module2.ko := ld -r -m elf_x86_64 -T ./scripts/module-common.lds --build-id  -o /home/wang/linux/kernel/内核模块编程/module2/module2.ko /home/wang/linux/kernel/内核模块编程/module2/module2.o /home/wang/linux/kernel/内核模块编程/module2/module2.mod.o ;  true
