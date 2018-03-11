@@ -1,0 +1,54 @@
+
+1 列出上海大盘2014-05-29日的数据	
+        grep "2014-05-29" gpdata.txt
+
+
+2 列出上海大盘2014-05月份的数据 
+    注意不能直接05*
+        grep "2014-05-*" gpdata.txt
+        grep "2014-05-.." gpdata.txt
+
+
+3 列出2014-06月所有上涨的数据	
+        grep "2014-06-*" gpdata.txt | awk '{if($7 > 0) print $1  , "\t\t", $7}'
+        grep "2014-06-*" gpdata.txt | awk '{if($7 > 0) print $1 $7}'
+        $0是打印全部内容
+        注意单引号
+        print只有一个
+        插入内容用逗号 否则不用
+
+
+4 统计上海大盘2014-05月所有上涨的数据 
+        grep "2014-06-*" gpdata.txt | awk '{if($7 > 0) print $1  , "\t\t", $7}'| wc -l  统计多少行
+        man wc
+
+
+5 显示上海大盘2014-02月上涨幅度最大的一天	  
+grep "2014-02-*" gpdata.txt | sort -n -k6 | tail -1
+grep "2014-02-*" gpdata.txt | sort -n -k6 -r| head -1
+        -r逆序
+
+
+6 显示上海大盘2014-02月份所有上涨数据的时间和上涨的幅度(%)
+     grep "20144-02-*" gpdata.txt | awk '{if($6>0) print $6 $7}'
+
+
+7 显示上海大盘2014-02月份所有上涨数据的时间和上涨的幅度(%)，第5条-第10条之间的数据
+        grep "2014-02-*" gpdata.txt | awk '{if($6>0) print$0}' | sed -n "5,10p"
+
+
+8 列出上海大盘2014-02月份涨跌在1个点和2个点之间的数据
+        grep "2014-02-*" gpdata.txt | awk '{if($7>=1 && $7<=2) print$0}' 
+
+
+
+9 在$HOME/myshell目录中查找*.sh的文件，检索*.sh文件中"case关键字出现的文件名和行号
+        find ./  *.sh | xargs grep -n "case"| awk -F: '{print $1,     "\t\t\t\t", $2}'
+
+
+
+
+
+
+
+
