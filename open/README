@@ -1,0 +1,10 @@
+chong.c chong1.c  实现了将终端(标准输出)重定向到某个文件中
+
+10M.c 实现空洞文件,扩充文件大小为10M大小
+
+open函数的一些参数
+
+dup,dup2 
+    Dup2(int oldfd, int newfd);
+指定新的文件描述符， 如果被使用了， 则关闭原来的文件描述符，在打开
+让newfd指向oldfd的内核文件表项
