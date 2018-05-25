@@ -2,6 +2,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <memory.h>
+#include <stdio.h>
 
 
 static unsigned char  msg_check(Msg* message)
@@ -49,11 +50,11 @@ int read_msg(int sockfd, char *buff, size_t len)
     else if (size == 0)
         return 0;
     unsigned char s = msg_check(&message);
+
     if (s == (unsigned char)message.checknum
-            && !strcmp("iotek2012", message.buff))
+            && !strcmp("iotek2012", message.head))
     {
-        //memcpy(buff, message.buff, len);
-        strncpy(buff, message.buff, len);
+        memcpy(buff, message.buff, len);
         return sizeof(message);
     }
     return -1;

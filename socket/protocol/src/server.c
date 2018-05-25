@@ -35,7 +35,7 @@ void do_service(int fd)          //回射
     while (1)
     {
         memset(buff, 0, sizeof(buff));
-        size_t size;
+        int size;
         if ( (size = read_msg(fd, buff, sizeof(buff))) < 0)
         {
             perror("protocal error");
@@ -45,7 +45,8 @@ void do_service(int fd)          //回射
             break;
         else
         {
-            //printf("[%s]\n", buff);
+            printf("size = %d\n", size);
+            printf("%s\n", buff);
             //write(STDOUT_FILENO, buff, strlen(buff));
             if (write_msg(fd, buff, strlen(buff)) < 0)
             {
@@ -165,8 +166,6 @@ int main()
         pthread_attr_destroy(&attr);
     }
 
-    //read
-    //write
 
     return 0;
 }
